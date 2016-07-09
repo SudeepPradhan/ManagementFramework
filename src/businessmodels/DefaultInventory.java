@@ -1,9 +1,5 @@
 package businessmodels;
 
-/**
- *
- * @author Hiten Vasnani
- */
 public class DefaultInventory extends Inventory {
 
     protected boolean isAvailable;

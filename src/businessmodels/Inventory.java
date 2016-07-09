@@ -1,6 +1,8 @@
 package businessmodels;
 
-public abstract class Inventory {
+import java.io.Serializable;
+
+public abstract class Inventory  implements Serializable {
 
     protected String inventoryId;
     protected Product product;

@@ -1,20 +1,25 @@
 package businessmodels;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Product {
+public class Product implements Serializable{
 
 	protected String productId;
 	protected double dailyRate;
 	protected double dailyFine;
+        private int borrowDuration;
+        private String title;
 	protected List<Inventory> inventory;
 
-	public Product(String productId, double dailyRate, double dailyFine) {
+	public Product(String productId, String title, double dailyRate, double dailyFine, int borrowDuration) {
 		this.productId = productId;
 		this.dailyRate = dailyRate;
 		this.dailyFine = dailyFine;
+                this.borrowDuration = borrowDuration;
+                this.title = title;
 		inventory = new ArrayList<>();
 	}
 
@@ -83,5 +88,21 @@ public class Product {
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
+        
+        public int getBorrowDuration() {
+            return borrowDuration;
+        }
+        
+        public void setBorrowDuration(int borrowDuration) {
+            this.borrowDuration = borrowDuration;
+        }
+            
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
+        public String getTitle() {
+            return title;
+        }
+        
 }
