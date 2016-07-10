@@ -7,7 +7,7 @@ public abstract class UserDecorator extends User {
     protected User baseUser;
 
     public UserDecorator(User baseUser) {
-        super(baseUser.getUsername(), baseUser.getPassword());
+        super(baseUser.getUsername(), baseUser.getPassword(),baseUser.getUserType());
         this.baseUser = baseUser;
     }
 }

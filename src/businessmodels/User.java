@@ -1,16 +1,22 @@
 package businessmodels;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable{
+ public static enum UserType {
 
+        ADMIN, LIBRARIAN, BOTH
+    };
     String username;
     String password;
     private List<Role> roles;
+    private UserType userType;
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String userName, String password, UserType userType) {
+        this.username = userName;
         this.password = password;
+        this.userType=userType;
     }
 
     public String getPassword() {
@@ -28,7 +34,13 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+  public UserType getUserType() {
+        return userType;
+    }
 
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
     /**
      * @return the roles
      */
