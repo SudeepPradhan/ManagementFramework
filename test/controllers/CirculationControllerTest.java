@@ -6,8 +6,8 @@
 package controllers;
 
 import businessmodels.CheckoutRecordEntry;
-import businessmodels.Customer;
 import businessmodels.Inventory;
+import interfaces.Customer;
 import java.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -5,9 +5,9 @@
  */
 package database;
 
-import businessmodels.Customer;
 import businessmodels.Product;
 import businessmodels.User;
+import interfaces.Customer;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;

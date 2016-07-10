@@ -5,6 +5,7 @@
  */
 package businessmodels;
 
+import interfaces.Customer;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;

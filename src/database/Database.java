@@ -1,8 +1,8 @@
 package database;
 
-import businessmodels.Customer;
 import businessmodels.Product;
 import businessmodels.User;
+import interfaces.Customer;
 import java.util.List;
 
 public interface Database {

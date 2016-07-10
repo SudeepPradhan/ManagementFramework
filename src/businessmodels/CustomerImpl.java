@@ -1,14 +1,14 @@
 package businessmodels;
 
-import interfaces.ICustomer;
 import java.io.Serializable;
+import interfaces.Customer;
 
-public final class Customer implements ICustomer, Serializable {
+public final class CustomerImpl implements Customer, Serializable {
 
     protected String customerId;
     protected CheckoutRecord checkoutRecord;
 
-    public Customer(String customerId) {
+    public CustomerImpl(String customerId) {
         this.customerId = customerId;
         this.setCheckoutRecord(new CheckoutRecord(this));
     }

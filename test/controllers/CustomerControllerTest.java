@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import businessmodels.Customer;
+import interfaces.Customer;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;

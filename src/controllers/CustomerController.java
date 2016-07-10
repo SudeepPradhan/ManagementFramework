@@ -1,11 +1,11 @@
 package controllers;
 
 import businessmodels.AccessType;
-import businessmodels.Customer;
 import businessmodels.Permission;
 import database.Database;
 import exceptions.InvalidArgumentException;
 import exceptions.UnauthorizedAccessException;
+import interfaces.Customer;
 
 import java.util.List;
 

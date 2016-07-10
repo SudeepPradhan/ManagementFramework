@@ -8,7 +8,7 @@ package interfaces;
 import businessmodels.CheckoutRecord;
 
 
-public interface ICustomer {
+public interface Customer {
     
     public String getCustomerId();
 

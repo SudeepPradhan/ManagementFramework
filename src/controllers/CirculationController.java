@@ -1,12 +1,12 @@
 package controllers;
 
 import businessmodels.CheckoutRecordEntry;
-import businessmodels.Customer;
 import businessmodels.Inventory;
 import businessmodels.Permission;
 import database.Database;
 import exceptions.InventoryAvailabilityException;
 import exceptions.UnauthorizedAccessException;
+import interfaces.Customer;
 import java.time.Duration;
 import java.time.LocalDate;
 

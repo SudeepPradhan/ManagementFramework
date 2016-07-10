@@ -1,14 +1,14 @@
 package decorators;
 
 import businessmodels.CheckoutRecord;
-import interfaces.ICustomer;
 import java.io.Serializable;
+import interfaces.Customer;
 
-public abstract class CustomerDecorator implements ICustomer, Serializable {
+public abstract class CustomerDecorator implements Customer, Serializable {
 
-    protected ICustomer baseCustomer;
+    protected Customer baseCustomer;
 
-    public CustomerDecorator(ICustomer baseCustomer) {
+    public CustomerDecorator(Customer baseCustomer) {
         this.baseCustomer = baseCustomer;
     }
 
