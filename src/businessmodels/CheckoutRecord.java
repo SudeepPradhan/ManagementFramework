@@ -1,17 +1,19 @@
 package businessmodels;
 
+import interfaces.ICustomer;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CheckoutRecord {
+public class CheckoutRecord implements Serializable {
 
     protected List<CheckoutRecordEntry> checkoutRecordEntries;
     protected Customer customer;
 
-    public CheckoutRecord(Customer customer) {
+    public CheckoutRecord(ICustomer customer) {
         checkoutRecordEntries = new ArrayList<>();
-        this.customer = customer;
+        this.customer = (Customer) customer;
     }
 
     public List<CheckoutRecordEntry> getCheckoutRecordEntries() {

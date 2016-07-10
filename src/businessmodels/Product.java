@@ -20,7 +20,7 @@ public class Product implements Serializable{
 		this.dailyFine = dailyFine;
                 this.borrowDuration = borrowDuration;
                 this.title = title;
-		inventory = new ArrayList<>();
+		this.inventory = new ArrayList<>();
 	}
 
 	public void addDefaultInventory(int numInventoryToAdd) {

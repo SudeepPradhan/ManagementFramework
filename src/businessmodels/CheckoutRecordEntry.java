@@ -1,8 +1,9 @@
 package businessmodels;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CheckoutRecordEntry {
+public class CheckoutRecordEntry implements Serializable {
 
     protected Inventory inventory;
     protected LocalDate checkOutDate;
