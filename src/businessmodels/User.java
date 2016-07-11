@@ -34,7 +34,8 @@ public class User implements Serializable{
     public void setUsername(String username) {
         this.username = username;
     }
-  public UserType getUserType() {
+    
+    public UserType getUserType() {
         return userType;
     }
 

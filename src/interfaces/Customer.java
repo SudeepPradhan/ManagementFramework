@@ -9,13 +9,9 @@ import businessmodels.CheckoutRecord;
 
 
 public interface Customer {
-    
     public String getCustomerId();
-
     public void setCustomerId(String customerId);
-
     public CheckoutRecord getCheckoutRecord();
-
     public void setCheckoutRecord(CheckoutRecord checkoutRecord);
 }
 
