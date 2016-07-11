@@ -1,5 +1,7 @@
 package businessmodels;
 
+import interfaces.Product;
+
 public class DefaultInventory extends Inventory {
 
     protected boolean isAvailable;

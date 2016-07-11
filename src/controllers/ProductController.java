@@ -5,10 +5,10 @@ import java.util.List;
 
 import businessmodels.Inventory;
 import businessmodels.Permission;
-import businessmodels.Product;
 import database.Database;
 import exceptions.InvalidArgumentException;
 import exceptions.UnauthorizedAccessException;
+import interfaces.Product;
 
 public abstract class ProductController extends Controller {
 

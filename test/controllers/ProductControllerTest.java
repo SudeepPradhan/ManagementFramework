@@ -6,7 +6,7 @@
 package controllers;
 
 import businessmodels.Inventory;
-import businessmodels.Product;
+import interfaces.Product;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
