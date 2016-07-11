@@ -44,8 +44,8 @@ public final class ProductImpl implements Product, Serializable {
     @Override
     public void addAllInventory(List<Inventory> inventory) {
         inventory.forEach(i -> {
-            if (!ProductImpl.this.inventory.contains(i)) {
-                ProductImpl.this.inventory.add(i);
+            if (!this.inventory.contains(i)) {
+                this.inventory.add(i);
             }
         });
     }
@@ -130,4 +130,8 @@ public final class ProductImpl implements Product, Serializable {
         return title;
     }
 
+    @Override
+    public String toString() {
+        return title;
+    }
 }
