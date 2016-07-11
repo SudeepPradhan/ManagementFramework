@@ -24,10 +24,15 @@ public final class ProductImpl implements Product, Serializable {
         this.inventory = new ArrayList<>();
     }
 
+    public ProductImpl(String title, int borrowDuration) {
+        this.title = title;
+        this.borrowDuration = borrowDuration;
+    }
+
     @Override
     public void addDefaultInventory(int numInventoryToAdd) {
         while (numInventoryToAdd-- > 0) {
-            inventory.add(new DefaultInventory((inventory.size() + 1) + "", (Product)this));
+            inventory.add(new DefaultInventory((inventory.size() + 1) + "", (Product) this));
         }
     }
 
