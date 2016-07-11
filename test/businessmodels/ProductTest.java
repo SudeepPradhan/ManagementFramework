@@ -5,6 +5,7 @@
  */
 package businessmodels;
 
+import interfaces.Product;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,7 +46,7 @@ public class ProductTest {
     public void testAddDefaultInventory() {
         System.out.println("addDefaultInventory");
         int numInventoryToAdd = 0;
-        ProductImpl instance = null;
+        Product instance = null;
         instance.addDefaultInventory(numInventoryToAdd);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -58,7 +59,7 @@ public class ProductTest {
     public void testAddInventory() {
         System.out.println("addInventory");
         Inventory inventory = null;
-        ProductImpl instance = null;
+        Product instance = null;
         instance.addInventory(inventory);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -71,7 +72,7 @@ public class ProductTest {
     public void testAddAllInventory() {
         System.out.println("addAllInventory");
         List<Inventory> inventory = null;
-        ProductImpl instance = null;
+        Product instance = null;
         instance.addAllInventory(inventory);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -83,7 +84,7 @@ public class ProductTest {
     @Test
     public void testGetNumberOfAvailableInventory() {
         System.out.println("getNumberOfAvailableInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         long expResult = 0L;
         long result = instance.getNumberOfAvailableInventory();
         assertEquals(expResult, result);
@@ -97,7 +98,7 @@ public class ProductTest {
     @Test
     public void testGetAvailableInventory() {
         System.out.println("getAvailableInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         List<Inventory> expResult = null;
         List<Inventory> result = instance.getAvailableInventory();
         assertEquals(expResult, result);
@@ -111,7 +112,7 @@ public class ProductTest {
     @Test
     public void testGetNumberOfUnavailableInventory() {
         System.out.println("getNumberOfUnavailableInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         long expResult = 0L;
         long result = instance.getNumberOfUnavailableInventory();
         assertEquals(expResult, result);
@@ -125,7 +126,7 @@ public class ProductTest {
     @Test
     public void testGetUnvailableInventory() {
         System.out.println("getUnvailableInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         List<Inventory> expResult = null;
         List<Inventory> result = instance.getUnvailableInventory();
         assertEquals(expResult, result);
@@ -139,7 +140,7 @@ public class ProductTest {
     @Test
     public void testGetNumberOfInventory() {
         System.out.println("getNumberOfInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         long expResult = 0L;
         long result = instance.getNumberOfInventory();
         assertEquals(expResult, result);
@@ -153,7 +154,7 @@ public class ProductTest {
     @Test
     public void testGetInventory() {
         System.out.println("getInventory");
-        ProductImpl instance = null;
+        Product instance = null;
         List<Inventory> expResult = null;
         List<Inventory> result = instance.getInventory();
         assertEquals(expResult, result);
@@ -167,7 +168,7 @@ public class ProductTest {
     @Test
     public void testGetDailyRate() {
         System.out.println("getDailyRate");
-        ProductImpl instance = null;
+        Product instance = null;
         double expResult = 0.0;
         double result = instance.getDailyRate();
         assertEquals(expResult, result, 0.0);
@@ -182,7 +183,7 @@ public class ProductTest {
     public void testSetDailyRate() {
         System.out.println("setDailyRate");
         double dailyRate = 0.0;
-        ProductImpl instance = null;
+        Product instance = null;
         instance.setDailyRate(dailyRate);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -194,7 +195,7 @@ public class ProductTest {
     @Test
     public void testGetDailyFine() {
         System.out.println("getDailyFine");
-        ProductImpl instance = null;
+        Product instance = null;
         double expResult = 0.0;
         double result = instance.getDailyFine();
         assertEquals(expResult, result, 0.0);
@@ -209,7 +210,7 @@ public class ProductTest {
     public void testSetDailyFine() {
         System.out.println("setDailyFine");
         double dailyFine = 0.0;
-        ProductImpl instance = null;
+        Product instance = null;
         instance.setDailyFine(dailyFine);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -221,7 +222,7 @@ public class ProductTest {
     @Test
     public void testGetProductId() {
         System.out.println("getProductId");
-        ProductImpl instance = null;
+        Product instance = null;
         String expResult = "";
         String result = instance.getProductId();
         assertEquals(expResult, result);
@@ -236,7 +237,7 @@ public class ProductTest {
     public void testSetProductId() {
         System.out.println("setProductId");
         String productId = "";
-        ProductImpl instance = null;
+        Product instance = null;
         instance.setProductId(productId);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
