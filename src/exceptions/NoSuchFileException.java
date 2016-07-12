@@ -5,6 +5,8 @@
  */
 package exceptions;
 
+import java.util.Date;
+
 /**
  *
  * @author Bishal
@@ -14,9 +16,9 @@ public class NoSuchFileException extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
         if ("NoSuchFileException".equals(e.getClass().getSimpleName())) {
-            ExceptionFileWriter.fileWrite("No such file:" + e.getMessage());
+            ExceptionFileWriter.fileWrite(new Date()+" : No such file:" + e.getMessage());
         } else {
-            ExceptionFileWriter.fileWrite("No error in file");
+            ExceptionFileWriter.fileWrite(new Date()+" : No error in file");
             this.nextHandler.handleRequest(e);
         }
     }

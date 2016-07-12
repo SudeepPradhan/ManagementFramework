@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package exceptions;
+
+import java.util.Date;
+
 /**
  *
  * @author Bishal
@@ -13,9 +16,9 @@ public class IOExceptionHandle extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
          if ("IOException".equals(e.getClass().getSimpleName())) {
-              ExceptionFileWriter.fileWrite("Error message on IO Exception:" + e.getMessage());
+            ExceptionFileWriter.fileWrite(new Date() + " : Error message on IO Exception:" + e.getMessage());
         } else {
-             ExceptionFileWriter.fileWrite("No error in IOException");
+            ExceptionFileWriter.fileWrite(new Date() + " : No error in IOException");
             this.nextHandler.handleRequest(e);
         }
     }

@@ -11,14 +11,14 @@ import java.util.Date;
  *
  * @author Bishal
  */
-public class NotDirectoryException extends CORExceptionHandler {
+public class InvalidClassException extends CORExceptionHandler {
 
     @Override
     public void handleRequest(Exception e) {
-        if ("NotDirectoryException".equals(e.getClass().getSimpleName())) {
-            ExceptionFileWriter.fileWrite(new Date()+" : No Directory found:" + e.getMessage());
+         if ("InvalidClassException".equals(e.getClass().getSimpleName())) {
+            ExceptionFileWriter.fileWrite(new Date() + " : Error message invalid class:" + e.getMessage());
         } else {
-            ExceptionFileWriter.fileWrite(new Date()+" : No error in Directory");
+            ExceptionFileWriter.fileWrite(new Date() + " : No error in invalid class");
             this.nextHandler.handleRequest(e);
         }
     }

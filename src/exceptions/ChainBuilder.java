@@ -18,11 +18,13 @@ public final class ChainBuilder {
         CORExceptionHandler noDirectory = new NotDirectoryException();
         CORExceptionHandler corruptFile = new StreamCorruptedException();
         CORExceptionHandler ioException = new IOExceptionHandle();
+        CORExceptionHandler invalidClass = new InvalidClassException();
         CORExceptionHandler classNotFound = new ClassNotFoundException();
         fileNotFound.nextHandler = noDirectory;
         noDirectory.nextHandler = corruptFile;
         corruptFile.nextHandler = ioException;
-        ioException.nextHandler = classNotFound;
+        ioException.nextHandler = invalidClass;
+        invalidClass.nextHandler = classNotFound;
         handler = fileNotFound;
     }
 

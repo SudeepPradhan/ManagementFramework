@@ -5,6 +5,8 @@
  */
 package exceptions;
 
+import java.util.Date;
+
 /**
  *
  * @author Bishal
@@ -14,9 +16,9 @@ public class StreamCorruptedException extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
         if ("StreamCorruptedException".equals(e.getClass().getSimpleName())) {
-            ExceptionFileWriter.fileWrite("Corrupted file error :" + e.getMessage());
+            ExceptionFileWriter.fileWrite(new Date()+" : Corrupted file error :" + e.getMessage());
         } else {
-            ExceptionFileWriter.fileWrite("No file is corrupted");
+            ExceptionFileWriter.fileWrite(new Date()+" : No file is corrupted");
             this.nextHandler.handleRequest(e);
         }
     }

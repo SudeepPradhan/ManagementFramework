@@ -5,6 +5,8 @@
  */
 package exceptions;
 
+import java.util.Date;
+
 /**
  *
  * @author Bishal
@@ -14,7 +16,7 @@ public class ClassNotFoundException extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
         if ("ClassNotFoundException".equals(e.getClass().getSimpleName())) {
-            ExceptionFileWriter.fileWrite("Class not found error :" + e.getMessage());
+            ExceptionFileWriter.fileWrite(new Date()+" : Class not found error :" + e.getMessage());
         }
     }
 }
