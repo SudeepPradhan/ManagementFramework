@@ -6,5 +6,4 @@ public class InventoryAvailabilityException extends Exception {
     public InventoryAvailabilityException(String message) {
         super(message);
     }
-
 }
