@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import interfaces.Customer;
+import interfaces.PrintOutput;
 
-public class CheckoutRecord implements Serializable {
+public class CheckoutRecord implements PrintOutput, Serializable {
 
     protected List<CheckoutRecordEntry> checkoutRecordEntries;
     protected Customer customer;
@@ -32,4 +33,21 @@ public class CheckoutRecord implements Serializable {
         this.customer = customer;
     }
 
+    @Override
+    public String PrintOutString(int index, String format) {
+        format = "%-3s%-18s%-80s%-12s%-12s\n";
+        String outputPrint;
+        outputPrint = "-------------------------------------------------------------------------------------------------------------------------------";
+        outputPrint += System.lineSeparator();
+        outputPrint += "Checkout record for customer id: " + this.customer.getCustomerId();
+        outputPrint += System.lineSeparator();
+        outputPrint += "-------------------------------------------------------------------------------------------------------------------------------";
+        outputPrint += System.lineSeparator();
+        outputPrint += String.format(format, "NO", "ISBN", "TITLE", "DUE DATE", "RETURN DATE");
+        int i = 0;
+        for (CheckoutRecordEntry checkoutRecordEntry : checkoutRecordEntries) {
+            outputPrint += checkoutRecordEntry.PrintOutString(i++, format);
+        }
+        return outputPrint;
+    }
 }
