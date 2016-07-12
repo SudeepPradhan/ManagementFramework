@@ -5,16 +5,18 @@ import java.util.List;
 
 public class User implements Serializable {
 
-    public static enum UserType {
-
-        ADMIN, LIBRARIAN, BOTH
-    };
+//    public static enum UserType {
+//
+//        ADMIN, LIBRARIAN, BOTH
+//    };
     String username;
     String password;
     private List<Role> roles;
-    private UserType userType;
+//    private UserType userType;
+    private String userType;
 
-    public User(String userName, String password, UserType userType) {
+//    public User(String userName, String password, UserType userType) {
+    public User(String userName, String password, String userType) {
         this.username = userName;
         this.password = password;
         this.userType = userType;
@@ -36,13 +38,21 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
+    
+//    public UserType getUserType() {
+//        return userType;
+//    }
+//
+//    public void setUserType(UserType userType) {
+//        this.userType = userType;
+//    }
 
     /**
      * @return the roles
