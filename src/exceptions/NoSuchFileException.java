@@ -9,13 +9,14 @@ package exceptions;
  *
  * @author Bishal
  */
-public class NoSuchFileException extends CORExceptionHandler{
+public class NoSuchFileException extends CORExceptionHandler {
+
     @Override
     public void handleRequest(Exception e) {
-         if ("NoSuchFileException".equals(e.getClass().getSimpleName())) {
-            System.out.println("No such file:" + e.getMessage());
+        if ("NoSuchFileException".equals(e.getClass().getSimpleName())) {
+            ExceptionFileWriter.fileWrite("No such file:" + e.getMessage());
         } else {
-            System.out.println("No error in file");
+            ExceptionFileWriter.fileWrite("No error in file");
             this.nextHandler.handleRequest(e);
         }
     }

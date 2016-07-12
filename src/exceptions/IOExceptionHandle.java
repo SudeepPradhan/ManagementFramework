@@ -13,9 +13,9 @@ public class IOExceptionHandle extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
          if ("IOException".equals(e.getClass().getSimpleName())) {
-            System.out.println("Error message on IO Exception:" + e.getMessage());
+              ExceptionFileWriter.fileWrite("Error message on IO Exception:" + e.getMessage());
         } else {
-            System.out.println("No error in IOException");
+             ExceptionFileWriter.fileWrite("No error in IOException");
             this.nextHandler.handleRequest(e);
         }
     }

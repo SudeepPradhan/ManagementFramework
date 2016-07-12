@@ -14,9 +14,9 @@ public class NotDirectoryException extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
         if ("NotDirectoryException".equals(e.getClass().getSimpleName())) {
-            System.out.println("No Directory found:" + e.getMessage());
+            ExceptionFileWriter.fileWrite("No Directory found:" + e.getMessage());
         } else {
-            System.out.println("No error in Directory");
+            ExceptionFileWriter.fileWrite("No error in Directory");
             this.nextHandler.handleRequest(e);
         }
     }

@@ -14,6 +14,5 @@ import java.util.List;
 public abstract class CORExceptionHandler {
 
     protected CORExceptionHandler nextHandler;
-
     abstract public void handleRequest(Exception e);
 }

@@ -3,8 +3,9 @@ package businessmodels;
 import java.io.Serializable;
 import java.util.List;
 
-public class User implements Serializable{
- public static enum UserType {
+public class User implements Serializable {
+
+    public static enum UserType {
 
         ADMIN, LIBRARIAN, BOTH
     };
@@ -16,7 +17,7 @@ public class User implements Serializable{
     public User(String userName, String password, UserType userType) {
         this.username = userName;
         this.password = password;
-        this.userType=userType;
+        this.userType = userType;
     }
 
     public String getPassword() {
@@ -34,7 +35,7 @@ public class User implements Serializable{
     public void setUsername(String username) {
         this.username = username;
     }
-    
+
     public UserType getUserType() {
         return userType;
     }
@@ -42,6 +43,7 @@ public class User implements Serializable{
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
     /**
      * @return the roles
      */
@@ -56,4 +58,8 @@ public class User implements Serializable{
         this.roles = roles;
     }
 
+    @Override
+    public String toString() {
+        return username;
+    }
 }

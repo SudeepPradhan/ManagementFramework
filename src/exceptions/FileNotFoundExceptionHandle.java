@@ -14,9 +14,9 @@ public class FileNotFoundExceptionHandle extends CORExceptionHandler {
     @Override
     public void handleRequest(Exception e) {
         if ("FileNotFoundException".equals(e.getClass().getSimpleName())) {
-            System.out.println("File not found error :" + e.getMessage());
+            ExceptionFileWriter.fileWrite("File not found error :" + e.getMessage());
         } else {
-            System.out.println("No error in File not found");
+            ExceptionFileWriter.fileWrite("No error in File");
             this.nextHandler.handleRequest(e);
         }
     }

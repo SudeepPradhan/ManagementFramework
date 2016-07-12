@@ -13,8 +13,8 @@ public class ClassNotFoundException extends CORExceptionHandler {
 
     @Override
     public void handleRequest(Exception e) {
-         if ("ClassNotFoundException".equals(e.getClass().getSimpleName())) {
-            System.out.println("Class not found error :" + e.getMessage());
+        if ("ClassNotFoundException".equals(e.getClass().getSimpleName())) {
+            ExceptionFileWriter.fileWrite("Class not found error :" + e.getMessage());
         }
     }
 }
