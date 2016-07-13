@@ -1,7 +1,7 @@
 package security.hash;
 
 import java.security.NoSuchAlgorithmException;
-
+//context
 public class PasswordHasher {
 
     private HashingMethod hashStrategy;
