@@ -5,6 +5,8 @@ import businessmodels.CheckoutRecord;
 import java.io.Serializable;
 import interfaces.Customer;
 import interfaces.Validatable;
+import interfaces.ValidateOutput;
+import interfaces.Validator;
 
 public abstract class CustomerDecorator implements Customer, Validatable<CustomerDecorator>,  Serializable {
 
@@ -73,5 +75,10 @@ public abstract class CustomerDecorator implements Customer, Validatable<Custome
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+    
+    @Override
+    public ValidateOutput validate(Validator<CustomerDecorator> validator) {
+        return validator.isValid(this);
     }
 }

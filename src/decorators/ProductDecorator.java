@@ -2,10 +2,13 @@ package decorators;
 
 import businessmodels.Inventory;
 import interfaces.Product;
+import interfaces.Validatable;
+import interfaces.ValidateOutput;
+import interfaces.Validator;
 import java.io.Serializable;
 import java.util.List;
 
-public abstract class ProductDecorator implements Product, Serializable {
+public abstract class ProductDecorator implements Product, Validatable<ProductDecorator>, Serializable {
 
     protected Product baseProduct;
 
@@ -108,4 +111,8 @@ public abstract class ProductDecorator implements Product, Serializable {
         return baseProduct.getTitle();
     }
 
+    @Override
+    public ValidateOutput validate(Validator<ProductDecorator> validator) {
+        return validator.isValid(this);
+    }
 }
