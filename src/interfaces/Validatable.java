@@ -5,13 +5,6 @@
  */
 package interfaces;
 
-import interfaces.Validator;
-import interfaces.ValidateOutput;
-
-/**
- *
- * @author Sudeep
- */
 public interface Validatable<T>
 {
     ValidateOutput validate(Validator<T> validator);

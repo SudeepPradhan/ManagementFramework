@@ -1,67 +1,64 @@
 package controllers;
 
+import java.util.List;
+import businessmodels.Address;
+
 import businessmodels.CheckoutRecordEntry;
 import businessmodels.Inventory;
-import businessmodels.Permission;
-import database.Database;
-import exceptions.InventoryAvailabilityException;
-import exceptions.UnauthorizedAccessException;
-import interfaces.Customer;
-import java.time.Duration;
-import java.time.LocalDate;
+import decorators.CustomerDecorator;
+// new branch
+public interface CirculationController {
 
-public abstract class CirculationController extends Controller {
+    /**
+     * Searches for a library member by ID.
+     *
+     * @param memberId the library member ID.
+     * @return the {@link LibraryMember} if found, {@code null} otherwise.
+     */
+    CustomerDecorator searchLibraryMember(String memberId);
 
-    public CirculationController(Database database) {
-        super(database, Permission.CIRCULATION_PERMISSION);
-    }
+    /**
+     * Gets list of library members.
+     *
+     * @return list of library members.
+     */
+    public List<CustomerDecorator> getLibraryMembers();
 
-    public boolean checkout(Customer customer, Inventory inventory, LocalDate checkoutDate, LocalDate dueDate) throws UnauthorizedAccessException, InventoryAvailabilityException {
-        if (!inventory.isAvailable()) {
-            throw new InventoryAvailabilityException("Inventory can not be checked out, isAvailable() is false");
-        }
-        CheckoutRecordEntry checkoutRecordEntry = new CheckoutRecordEntry(inventory, checkoutDate, dueDate);
-        inventory.setAvailable(false);
-        customer.getCheckoutRecord().addCheckoutRecordEntry(checkoutRecordEntry);
-        return (database.updateCustomer(customer) && database.updateProduct(inventory.getProduct()));
-    }
+    /**
+     *
+     * @param memberId
+     * @param inventory
+     * @return
+     */
+    boolean checkout(String memberId, Inventory inventory);
 
-    public boolean checkin(Customer customer, CheckoutRecordEntry checkoutRecordEntry) throws UnauthorizedAccessException, InventoryAvailabilityException {
-        if (checkoutRecordEntry.getInventory().isAvailable()) {
-            throw new InventoryAvailabilityException("Inventory can not be checked in, isAvailable() is true");
-        }
-        LocalDate checkinDate = LocalDate.now();
-        checkoutRecordEntry.setReturnDate(checkinDate);
-        checkoutRecordEntry.getInventory().setAvailable(true);
-        return database.updateCustomer(customer) && database.updateProduct(checkoutRecordEntry.getInventory().getProduct());
-    }
+    /**
+     *
+     * @param memberId
+     * @param checkoutRecordEntry
+     * @return
+     */
+    boolean checkin(String memberId, CheckoutRecordEntry checkoutRecordEntry);
 
-    public final double calculateAmount(CheckoutRecordEntry checkoutRecordEntry) throws UnauthorizedAccessException {
-        return calculateBaseAmount(checkoutRecordEntry) + calculateOverdueFine(checkoutRecordEntry);
-    }
+    /**
+     *
+     * @param memberId
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param phoneNumber
+     * @return
+     */
+    boolean addLibraryMember(String memberId, String firstName, String lastName, Address address, String phoneNumber);
 
-    public double calculateOverdueFine(CheckoutRecordEntry checkoutRecordEntry) throws UnauthorizedAccessException {
-        if (checkoutRecordEntry.isReturned()) {
-            return 0;
-        }
-
-        long overdueDays = Duration.between(LocalDate.now(), checkoutRecordEntry.getDueDate()).getSeconds() / 86400;
-        if (overdueDays > 0) {
-            return overdueDays * checkoutRecordEntry.getInventory().getProduct().getDailyFine();
-        }
-        return 0;
-    }
-
-    public double calculateBaseAmount(CheckoutRecordEntry checkoutRecordEntry) throws UnauthorizedAccessException {
-        LocalDate endDate;
-        if (checkoutRecordEntry.isReturned()) {
-            endDate = checkoutRecordEntry.getReturnDate();
-        } else {
-            endDate = LocalDate.now();
-        }
-        long checkoutDays = Duration.between(endDate, checkoutRecordEntry.getCheckOutDate()).getSeconds() / 86400;
-        long plannedDuration = Duration.between(checkoutRecordEntry.getDueDate(), checkoutRecordEntry.getCheckOutDate()).getSeconds() / 86400;
-        long baseDuration = checkoutDays > plannedDuration ? (plannedDuration - checkoutDays) : checkoutDays;
-        return baseDuration * checkoutRecordEntry.getInventory().getProduct().getDailyRate();
-    }
+    /**
+     *
+     * @param memberId
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param phoneNumber
+     * @return
+     */
+    boolean updateLibraryMember(String memberId, String firstName, String lastName, Address address, String phoneNumber);
 }
