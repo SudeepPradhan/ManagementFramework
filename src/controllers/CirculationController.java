@@ -6,7 +6,7 @@ import businessmodels.Address;
 import businessmodels.CheckoutRecordEntry;
 import businessmodels.Inventory;
 import decorators.CustomerDecorator;
-// new branch
+
 public interface CirculationController {
 
     /**
@@ -15,14 +15,14 @@ public interface CirculationController {
      * @param memberId the library member ID.
      * @return the {@link LibraryMember} if found, {@code null} otherwise.
      */
-    CustomerDecorator searchLibraryMember(String memberId);
+    CustomerDecorator searchCustomer(String memberId);
 
     /**
      * Gets list of library members.
      *
      * @return list of library members.
      */
-    public List<CustomerDecorator> getLibraryMembers();
+    public List<CustomerDecorator> getCustomer();
 
     /**
      *
@@ -49,7 +49,7 @@ public interface CirculationController {
      * @param phoneNumber
      * @return
      */
-    boolean addLibraryMember(String memberId, String firstName, String lastName, Address address, String phoneNumber);
+    boolean addCustomer(String memberId, String firstName, String lastName, Address address, String phoneNumber);
 
     /**
      *
@@ -60,5 +60,5 @@ public interface CirculationController {
      * @param phoneNumber
      * @return
      */
-    boolean updateLibraryMember(String memberId, String firstName, String lastName, Address address, String phoneNumber);
+    boolean updateCustomer(String memberId, String firstName, String lastName, Address address, String phoneNumber);
 }

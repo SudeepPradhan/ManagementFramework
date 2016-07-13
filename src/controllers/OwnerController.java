@@ -2,12 +2,11 @@ package controllers;
 
 import java.util.List;
 import businessmodels.Address;
-import businessmodels.Author;
+import businessmodels.Owner;
 
-public interface AuthorController {
-   //new branch
+public interface OwnerController {
     /**
-     * Adds a new Author.
+     * Adds a new Owner.
      * 
      * @param firstName the first name..
      * @param lastName the last name.
@@ -17,11 +16,11 @@ public interface AuthorController {
      * @param bibliography the bibliography.
      * @return 
      */
-    boolean createAuthor(String firstName, String lastName,  Address address, String phoneNumber, String credentials, String bibliography);
+    boolean createOwner(String firstName, String lastName,  Address address, String phoneNumber, String credentials, String bibliography);
     
     /**
      * Updates an existing author.
-     * @param author the {@link  Author} instance.
+     * @param author the {@link  Owner} instance.
      * @param firstName the first name..
      * @param lastName the last name.
      * @param address the {@link Address}. Can be null.
@@ -30,19 +29,19 @@ public interface AuthorController {
      * @param bibliography the bibliography.
      * @return true if the operation succeeds, false otherwise.
      */
-    boolean updateAuthor(Author author, String firstName,  String lastName, Address address, String phoneNumber, String credentials, String bibliography);
+    boolean updateOwner(Owner author, String firstName,  String lastName, Address address, String phoneNumber, String credentials, String bibliography);
    
     /**
      * Search authors by last name.
      * 
-     * @param lastName the last name or sequence of characters in last name.
-     * @return list of {@link Author}s.
+     * @param name the last name or sequence of characters in last name.
+     * @return list of {@link Owner}s.
      */
-    List<Author> searchAuthors(String name); 
+    List<Owner> searchOwners(String name); 
     
     /**
      * Gets all authors.
-     * @return  list of {@link Author}s.
+     * @return  list of {@link Owner}s.
      */
-    List<Author> getAuthors();
+    List<Owner> getOwners();
 }

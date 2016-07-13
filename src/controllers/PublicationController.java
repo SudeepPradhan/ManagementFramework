@@ -1,7 +1,7 @@
 package controllers;
 
 import java.util.List;
-import businessmodels.Author;
+import businessmodels.Owner;
 import decorators.ProductDecorator;
 
 public interface PublicationController {
@@ -9,10 +9,10 @@ public interface PublicationController {
     /**
      * Searches book with ISBN.
      *
-     * @param isbn the ISBN number.
+     * @param id the ISBN number.
      * @return the {@link Book}.
      */
-    ProductDecorator searchBookWithIsbn(String isbn);
+    ProductDecorator searchProductWithId(String id);
 
     /**
      * Searches Books with title.
@@ -20,7 +20,7 @@ public interface PublicationController {
      * @param title the title or part of the title.
      * @return list of books containing the specified title.
      */
-    List<ProductDecorator> searchBooksWithTitle(String title);
+    List<ProductDecorator> searchProductWithTitle(String title);
 
     /**
      * Adds new book.
@@ -30,13 +30,13 @@ public interface PublicationController {
      * @param dailyRate the daily rate.
      * @param dailyFine the daily fine.
      * @param borrowDuration the duration of borrowing.
-     * @param authors the list of {@link Author}s.
+     * @param authors the list of {@link Owner}s.
      * @return the added {@link Book} if the operation succeeds, false
      * otherwise.
      */
-    ProductDecorator addBook(String isbn, String title, double dailyRate, double dailyFine, int borrowDuration, List<Author> authors);
+    ProductDecorator addProduct(String isbn, String title, double dailyRate, double dailyFine, int borrowDuration, List<Owner> authors);
 
-    public List<ProductDecorator> getBooks();
+    public List<ProductDecorator> getProducts();
 
     /**
      * @param isbn the ISBN. book
@@ -45,7 +45,7 @@ public interface PublicationController {
      * @param authors
      * @return
      */
-    boolean updateBook(String isbn, String title, int borrowDuration, List<Author> authors);
+    boolean updateProduct(String id, String title, int borrowDuration, List<Owner> authors);
 
     /**
      * Adds copies to a book.

@@ -5,7 +5,7 @@ import interfaces.ValidateOutput;
 import interfaces.Validator;
 import java.io.Serializable;
 
-public class Author implements Validatable<Author>,Serializable {
+public class Owner implements Validatable<Owner>,Serializable {
 
     private String firstName;
     private String lastName;
@@ -24,7 +24,7 @@ public class Author implements Validatable<Author>,Serializable {
      * @param credentials
      * @param biography
      */
-    public Author(String firstName, String lastName, Address address, String phoneNumber, String credentials, String biography) {
+    public Owner(String firstName, String lastName, Address address, String phoneNumber, String credentials, String biography) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -87,7 +87,7 @@ public class Author implements Validatable<Author>,Serializable {
     }
 
     @Override
-    public ValidateOutput validate(Validator<Author> validator) {
+    public ValidateOutput validate(Validator<Owner> validator) {
         return validator.isValid(this);
     }
 }
