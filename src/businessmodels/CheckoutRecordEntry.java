@@ -64,4 +64,9 @@ public class CheckoutRecordEntry implements PrintOutput, Serializable  {
                 getReturnDate() != null ? getReturnDate().format(DateTimeFormatter.ofPattern("MM/dd/yyyy")) : "");
     }
 
+    @Override
+    public void addCheckoutRecordEntry(CheckoutRecordEntry checkoutRecordEntry) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
 }

@@ -5,10 +5,13 @@
  */
 package interfaces;
 
+import businessmodels.CheckoutRecordEntry;
+
 /**
  *
  * @author Sudeep
  */
 public interface PrintOutput {
     public String PrintOutString(int index, String format);
+    public void addCheckoutRecordEntry(CheckoutRecordEntry checkoutRecordEntry);
 }
