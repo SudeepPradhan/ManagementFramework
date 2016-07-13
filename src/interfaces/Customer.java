@@ -6,6 +6,9 @@
 package interfaces;
 
 import businessmodels.CheckoutRecord;
+import businessmodels.CheckoutRecordEntry;
+import businessmodels.Inventory;
+import java.time.LocalDate;
 
 
 public interface Customer {
@@ -13,5 +16,7 @@ public interface Customer {
     public void setCustomerId(String customerId);
     public CheckoutRecord getCheckoutRecord();
     public void setCheckoutRecord(CheckoutRecord checkoutRecord);
+    public void checkoutProduct(Inventory inventory, LocalDate checkoutDate, LocalDate dueDate);
+    public void returnProduct(CheckoutRecordEntry checkoutRecordEntry, LocalDate returnDate);
 }
 

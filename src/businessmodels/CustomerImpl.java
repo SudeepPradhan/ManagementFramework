@@ -2,7 +2,10 @@ package businessmodels;
 
 import java.io.Serializable;
 import interfaces.Customer;
+import java.time.LocalDate;
+//new branch
 
+// I just swtich branch
 public final class CustomerImpl implements Customer, Serializable {
 
     protected String customerId;
@@ -31,5 +34,13 @@ public final class CustomerImpl implements Customer, Serializable {
     @Override
     public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
         this.checkoutRecord = checkoutRecord;
+    }
+
+    @Override
+    public void checkoutProduct(Inventory inventory, LocalDate checkoutDate, LocalDate dueDate) {
+    }
+
+    @Override
+    public void returnProduct(CheckoutRecordEntry checkoutRecordEntry, LocalDate returnDate) {
     }
 }
