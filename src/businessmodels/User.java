@@ -72,4 +72,8 @@ public class User implements Serializable {
     public String toString() {
         return username;
     }
+
+    public void nofityUser(String message) {
+      System.out.print(message);
+    }
 }
